@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">DietReport</string>
+    <string name="header_diet_request">DIET REQUEST</string>
+    <string name="label_name">"Name:                         "</string>
+    <string name="label_age">"AGE:             "</string>
+    <string name="label_room">"ROOM:           "</string>
+    <string name="label_date_time">"DATE &amp; TIME:              "</string>
+    <string name="label_religion">RELIGION:</string>
+    <string name="label_diet">DIET:</string>
+    <string name="label_signature">"SIGNATURE:               "</string>
+    <string name="btn_touch_to_sign">Touch to Sign</string>
+    <string name="btn_submit">Submit</string>
+    <string name="hint_name">Full Name</string>
+    <string name="hint_age">00</string>
+    <string name="hint_room">Room #</string>
+    <string name="hint_date_time">Date &amp; Time</string>
+    <string name="hint_religion">Religion</string>
+    <string name="hint_diet">Diet type</string>
+    <string name="sig_pad_header">Draw your signature below</string>
+    <string name="btn_clear">Clear</string>
+    <string name="btn_done">Done</string>
+    <string name="toast_enter_name">Please enter a name</string>
+    <string name="toast_submitted">Diet Report Submitted for: %1$s</string>
+    <string name="content_description_logo">Diet Report Logo</string>
+    <string name="content_description_signature">User Signature</string>
+</resources>
