@@ -36,6 +36,7 @@ public class SignatureView extends View {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 path.moveTo(eventX, eventY);
+                isSigned = true;
                 return true;
             case MotionEvent.ACTION_MOVE:
                 path.lineTo(eventX, eventY);
@@ -57,6 +58,7 @@ public class SignatureView extends View {
 
     public void clear() {
         path.reset();
+        isSigned = false;
         invalidate();
     }
 
@@ -67,4 +69,9 @@ public class SignatureView extends View {
         draw(canvas);
         return bitmap;
     }
+    private boolean isSigned = false;
+    public boolean isEmpty() {
+        return !isSigned;
+    }
+
 }
