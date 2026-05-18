@@ -1,27 +1,33 @@
 package com.example.dietreport;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DB_NAME = "DietDB.db";
 
     public DBHelper(Context context) {
-        super(context, DB_NAME, null, 1);
+        super(context, DB_NAME, null, 2);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL(
-                "INSERT INTO users(name, username, password) VALUES('Admin','admin','1234')"
-        );
 
-        // USERS TABLE (FOR LOGIN + REGISTER)
+        // USERS TABLE
         db.execSQL(
                 "CREATE TABLE users (" +
                         "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                         "name TEXT," +
-                        "username TEXT," +
+                        "username TEXT UNIQUE," +
                         "password TEXT)"
+        );
+
+        // DEFAULT ADMIN USER
+        db.execSQL(
+                "INSERT OR IGNORE INTO users(name, username, password) VALUES('Admin','admin','1234')"
         );
 
         // DIET RECORDS TABLE
@@ -33,7 +39,8 @@ public class DBHelper extends SQLiteOpenHelper {
                         "room TEXT," +
                         "date_time TEXT," +
                         "religion TEXT," +
-                        "diet TEXT)"
+                        "diet TEXT," +
+                        "signature BLOB)"
         );
     }
 

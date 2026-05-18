@@ -32,8 +32,13 @@
             android:name=".MainActivity"
             android:exported="false" />
 
-        <!-- ✅ ADD THIS -->
-        <activity android:name=".ViewRecordsActivity" />
+        <activity
+            android:name=".ViewRecordsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".RecordDetailActivity"
+            android:exported="false" />
 
     </application>
 

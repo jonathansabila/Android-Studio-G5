@@ -23,4 +23,5 @@
     <string name="toast_submitted">Diet Report Submitted for: %1$s</string>
     <string name="content_description_logo">Diet Report Logo</string>
     <string name="content_description_signature">User Signature</string>
+    
 </resources>

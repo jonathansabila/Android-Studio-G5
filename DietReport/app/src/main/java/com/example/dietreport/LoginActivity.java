@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import java.security.MessageDigest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -36,8 +37,9 @@ public class LoginActivity extends AppCompatActivity {
 
         int count = c.getInt(0);
         c.close();
+        dbCheck.close();
 
-        if (count == 0) {
+        if (count == 0 && !isFinishing()) {
             Toast.makeText(this,
                     "No account found. Please register first.",
                     Toast.LENGTH_SHORT).show();
@@ -69,14 +71,24 @@ public class LoginActivity extends AppCompatActivity {
             );
 
             if (cursor.getCount() > 0) {
+
                 Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
+
+                btnLogin.setEnabled(false);
+
                 startActivity(new Intent(this, MainActivity.class));
                 finish();
+
             } else {
+
                 Toast.makeText(this, "Invalid credentials", Toast.LENGTH_SHORT).show();
+                etPassword.setText("");
+                etUsername.setError("Wrong login");
+                etPassword.setError("Check password");
             }
 
             cursor.close();
+            db.close();
         });
 
         // REGISTER BUTTON (OUTSIDE LOGIN CLICK)

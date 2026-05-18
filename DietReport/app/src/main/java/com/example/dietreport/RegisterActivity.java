@@ -1,6 +1,7 @@
 package com.example.dietreport;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.Button;
@@ -41,16 +42,43 @@ public class RegisterActivity extends AppCompatActivity {
 
             SQLiteDatabase db = dbHelper.getWritableDatabase();
 
+            // CHECK IF USERNAME EXISTS
+            Cursor cursor = db.rawQuery(
+                    "SELECT 1 FROM users WHERE username=? LIMIT 1",
+                    new String[]{username}
+            );
+            if (cursor.moveToFirst()) {
+                Toast.makeText(this, "Username already exists", Toast.LENGTH_SHORT).show();
+                cursor.close();
+                db.close();
+                return;
+            }
+
+            cursor.close();
+
             ContentValues values = new ContentValues();
             values.put("name", name);
             values.put("username", username);
             values.put("password", password);
 
-            db.insert("users", null, values);
+            long result = db.insert("users", null, values);
 
-            Toast.makeText(this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+            if (result == -1) {
+                Toast.makeText(this, "Registration failed", Toast.LENGTH_SHORT).show();
+                db.close();
+                return;
+            }
 
-            finish(); // go back to login
+            Toast.makeText(this,
+                    "Registered Successfully",
+                    Toast.LENGTH_SHORT).show();
+
+            db.close();
+
+            etName.setText("");
+            etUsername.setText("");
+            etPassword.setText("");
+            finish();
         });
     }
 }
