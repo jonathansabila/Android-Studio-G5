@@ -11,12 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
         android:padding="12dp">
 
         <TextView
             android:id="@+id/txtInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/black"
             android:text="Record Info"
             android:textSize="16sp" />
 
@@ -32,6 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Delete"
+            android:textColor="@color/white"
             android:backgroundTint="#C62828"
             android:layout_gravity="end"
             android:layout_marginTop="8dp"/>

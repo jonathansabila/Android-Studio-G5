@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="medical_primary">#0F3E7D</color>
+    <color name="medical_accent">#00A896</color>
+    <color name="medical_bg">#F8FAFC</color>
+    <color name="text_dark">#1E293B</color>
+    <color name="text_muted">#64748B</color>
 </resources>

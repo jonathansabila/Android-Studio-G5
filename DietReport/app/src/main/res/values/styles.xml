@@ -1,0 +1,13 @@
+<resources>
+
+    <style name="Theme.YourAppName" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- your app theme -->
+    </style>
+
+    <!-- ADD THIS BELOW -->
+    <style name="CircleImage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+</resources>
